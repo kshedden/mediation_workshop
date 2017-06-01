@@ -9,45 +9,51 @@ The Statsmodels source code for mediation analysis is here:
 
 https://github.com/statsmodels/statsmodels/blob/master/statsmodels/stats/mediation.py
 
+A notebook illustrating a mediation analysis:
+
+http://nbviewer.jupyter.org/urls/umich.box.com/shared/static/jpmd9y99259u6dv0rj6p46993981m7zm.ipynb
+
 Mediation analysis is a way of assessing structural hypotheses about
 the relationships among variables.  It builds on regression analysis,
 which aims to understand the relationship between "exposures" or
 "treatments", e.g. X1, X2, and an outcome Y.  A regression analysis
 might reveal how X2 relates to Y when X1 is fixed, and vice versa.  A
 mediation analysis considers whether any association of X1 with Y is
-"carried through" an association of X1 with X2.
+"carried through" an association of X1 with X2 and an association of
+X2 with Y.
 
 If we use multiple regression to model the relationship between X1,
 X2, and Y, and we compare a model regressing Y on X1 and X2 to a model
-regressing Y on X1 alone, we often find that the coefficient for X1
-becomes smaller in magnitude when including ("controlling for") X2.
-Mediation analysis aims to explain why this effect attenuation is
+regressing Y on X1 alone, we often will find that the coefficient for
+X1 becomes smaller in magnitude when including ("controlling for") X2.
+Mediation analysis aims to explain why this "effect attenuation" is
 occurring.
 
 Rigorous mediation analysis is a branch of causal inference, and
 involves careful specification of the assumptions (some of which are
 untestable) under which mediation effects are estimable.  These issues
-are important, but we will not address them in detail here.
+are important, but we will not address them in detail here.  See the
+Imai et al. paper linked above for more discussion of causality and
+assumptions.
 
 Suppose we have an outcome Y, a mediator M, and an exposure T.  To be
 concrete, imagine that Y is a subject's blood pressure, M is their
 body mass index (BMI), and T is an indicator of whether the subject
-participates in an exercise program.  Physiologically, it is
-reasonable to imagine that exercise leads to weight loss, which in
-turn leads to lower blood pressure.  This is a "mediated" effect of
-exercise on blood pressure.  At the same time, it is reasonable to
-imagine that exercise has other consequences such as improving
-cardiovascular functioning that might also lead to lower blood
-pressure, for reasons that have nothing to do with weight loss.  These
-are the "direct" or "unmediated" effects of exercise on blood
-pressure.
+participates in an exercise program. It is reasonable to imagine that
+exercise may lead to weight loss, which in turn may lead to lower
+blood pressure.  This is a "mediated" effect of exercise on blood
+pressure.  At the same time, it is reasonable to imagine that exercise
+has other consequences such as improving cardiovascular functioning,
+that might also lead to lower blood pressure for reasons that have
+nothing to do with weight loss.  These are the "direct" or
+"unmediated" effects of exercise on blood pressure.
 
 To define a mediated effect, we need to consider "counterfactual"
 outcomes (also known as "potential" outcomes).  These are outcomes for
 a given subject that were not actually observed, because the subject
 was not seen in the setting under which the variable is defined.  In
-the notation above, the counterfactual outcomes are notated as Y(t,
-m).  This is the blood pressure that would be seen for a particular
+the notation above, the counterfactual outcomes are notated as Y(t, m)
+-- this is the blood pressure that would be seen for a particular
 subject, had they been in treatment group t (e.g. t=1 is the exercise
 program group, t=0 are the others), and had they achieved BMI m.
 
