@@ -69,9 +69,8 @@ subjects.  Expressed in terms of potential outcomes, the these are
 given by:
 
 ```
-I1 = Y(t=1, m=m(1)) - Y(t=1, m=m(0))
-
-I0 = Y(t=0, m=m(1)) - Y(t=0, m=m(0))
+I1 = Y(t=1, m=m(1)) ﹣ Y(t=1, m=m(0))
+I0 = Y(t=0, m=m(1)) ﹣ Y(t=0, m=m(0))
 ```
 
 Each of these expressions captures what would happen to a subject
@@ -88,8 +87,8 @@ Complementing the mediated (indirect) effects defined above, we have
 the "direct effects", defined as
 
 ```
-D1 = Y(t=1, m=m(1)) - Y(t=0, m=m(1))
-D0 = Y(t=1, m=m(0)) - Y(t=0, m=m(0))
+D1 = Y(t=1, m=m(1)) ﹣ Y(t=0, m=m(1))
+D0 = Y(t=1, m=m(0)) ﹣ Y(t=0, m=m(0))
 ```
 
 In these cases we are holding the mediator fixed while comparing the
